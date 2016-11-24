@@ -2,7 +2,6 @@
 ## Decrypt!!!!
 
 ## This program is designed to decrypt the secret message.
-## Step 1 --> Find e
 
 ## Define myfile
 myfile = "cipher_text.txt"
@@ -22,9 +21,9 @@ def gram1(bla):
     ## Compute alpha and count
     ## Only keep alphabetical values in the lists
     for ch in bla: 
-        if ch not in alpha and (ch.isalpha() or ch == "{"): ## I cheated
+        if ch not in alpha and ch.isalpha(): 
             alpha.append(ch)
-        elif ch in alpha and (ch.isalpha() or ch == "{"): ## I cheated
+        elif ch in alpha and ch.isalpha(): 
              num = alpha.index(ch)
              count[num] += 1
              
@@ -69,7 +68,7 @@ def step2(mystring):
 def gram2(mystring):
     ## Two lists
     alpha = []
-    count = [1]*(len(mystring)) ## Should fuck up here
+    count = [1]*(len(mystring)) 
     print("\nStep2\nBigram counts chart:")
     print("P.S. Letter 'e' is been replaced already here.\n")
     ## Compute alpha and count
