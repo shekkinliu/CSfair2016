@@ -1,0 +1,32 @@
+step1 —> letter counts	
+step2 —> Find e and replace it 						SOLVE “E”
+step3 —> produce bigram tables
+step4 —> produce trigram tables
+step5 —> produce 4grams tables
+
+step6 —> the most common trigram should be “the”			SOLVE “H” and “T”
+step7 —> compare bigrams to find “re” 					SOLVE “R”
+step8 —> compare bigrams to find “in”, “an”, “on”			SOLVE “N”
+step9 —> compare 4grams to find out “that” 				SOLVE “A”
+step10 —> compare trigrams to find “and” 				SOLVE “D”
+step11 —> only character in letter counts but not in bigrams list 	SOLVE “S”
+
+
+references:
+http://norvig.com/mayzner.html 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
