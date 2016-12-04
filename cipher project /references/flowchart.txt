@@ -1,16 +1,16 @@
-step1 —> letter counts	
-step2 —> Find e and replace it 						SOLVE “E”
-step3 —> produce bigram tables
-step4 —> produce trigram tables
-step5 —> produce 4grams tables
-step6 —> the most common trigram should be “the”			SOLVE “H” and “T”
-
-step7 —> most frequent eXt == ‘ent’					SOLVE ’N’
-step8 —> compare 4grams to find out “that” 				SOLVE “A”
-step9 —> compare trigrams to find “and” 				SOLVE “D”
-step10 —> compare bigrams to find “re”		(lowercase)+”e”		SOLVE “R”
-step11 —> compare bigrams to find “or”		(lowercase)+”r”		SOLVE “O”
-step12 —> compare bigrams to find “in”		(lowercase)+”n”		SOLVE “I”
+produce letter counts	
+produce bigram tables
+produce trigram tables
+produce 4grams tables
+******************************************************************************************
+step1 —> Find e and replace it 						SOLVE “E”
+step2 —> the most common trigram should be “the”			SOLVE “H” and “T”
+step3 —> most frequent eXt == ‘ent’					SOLVE ’N’
+step4 —> compare 4grams to find out “that” 				SOLVE “A”
+step5 —> compare trigrams to find “and” 				SOLVE “D”
+step6 —> compare bigrams to find “re”		(lowercase)+”e”		SOLVE “R”
+step7 —> compare bigrams to find “or”		(lowercase)+”r”		SOLVE “O”
+step8 —> compare bigrams to find “in”		(lowercase)+”n”		SOLVE “I”
 
 
 
@@ -22,16 +22,13 @@ references:
 http://norvig.com/mayzner.html 
 
 
-calculate percentage of decryption
 allow playback and restart
 
 
 
 
 
-
-
-
+Monoalphabetic substitution cipher
 
 
 

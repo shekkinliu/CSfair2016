@@ -4,7 +4,13 @@
 ## This program is designed to decrypt the secret message.
 
 ## IMPORT
-import decrypt_functions
+import decrypt_functions as d
+
+## Constants
+print_num = 10
+
+## Message
+ps = "**Notice that all lower case letters == decrpyted letters while all upper case letters == encrpyted letters"
 
 ## Define myfile
 myfile = "cipher_text.txt"
@@ -15,134 +21,137 @@ mystring = msg.read()
 msg.close()
 
 ## display the encrypted message
-print("Here is the encrypted message:\n")
-print(mystring)
-print("\n"*5)
+print("Here is the encrypted message:\n\n", mystring,"\n"*5, sep = "")
 
-## letter counts
-diction1, alpha1, count1 = decrypt_functions.gram1(mystring)
 
-## Step 1 --> Find e and replace it
+
+################################################
+## STEP 1 --> Find e and replace it
 ## e
-mystring_1 = decrypt_functions.find_e(mystring, alpha1)
+################################################
+## Find e
+print("\nStep1\nLetter 'e' is the most frequently used letter in Englsih")
+## letter counts
+alpha1, count1 = d.gram1(mystring)
+## print letter counts
+print("Letters Frequency\t", ps)
+d.print_table(alpha1, count1,len(alpha1))
+## Replace e
+mystring_1 = d.find_e(mystring, alpha1)
+## Calculate Completion %
+com1 = d.complete(mystring_1)
+print("Decryption Completion % --> \t",format(com1, ".2f"), "%")
 
-## Bigram counts
-diction2, alpha2, count2 = decrypt_functions.gram2(mystring_1)
 
-## Trigram counts
-diction3, alpha3, count3 = decrypt_functions.gram3(mystring_1)
 
-## 4-gram counts
-diction4, alpha4, count4 = decrypt_functions.gram4(mystring_1)
-
-## Step 2 --> Find t,h and replace it
+################################################
+## STEP 2 --> Find t,h and replace it
 ## e
 ## t h
-mystring_2 = decrypt_functions.find_t_h(mystring_1, alpha3)
-
-
-########################
-## NEXT STEP ##
-########################
-
-
-## Bigram counts
-diction2, alpha2, count2 = decrypt_functions.gram2(mystring_2)
-
+################################################
+## Find t, h
+print("\nStep2\n'the' is one of the most frequent trigram.")
 ## Trigram counts
-diction3, alpha3, count3 = decrypt_functions.gram3(mystring_2)
+alpha3, count3 = d.gram3(mystring_1)
+## print letter counts
+print("Trigrams Frequency\t", ps)
+d.print_table(alpha3, count3, print_num)
+## Replace t, h
+mystring_2 = d.find_t_h(mystring_1, alpha3)
+## Calculate Completion %
+com2 = d.complete(mystring_2)
+print("Decryption Completion % --> \t",format(com2, ".2f"), "%")
 
-## 4-gram counts
-diction4, alpha4, count4 = decrypt_functions.gram4(mystring_2)
 
-## Step 3 --> Find n and replace it
+
+################################################
+## STEP 3 --> Find n and replace it
 ## e
 ## t h
 ## n
-mystring_3 = decrypt_functions.find_n(mystring_2, alpha3)
-
-
-########################
-## NEXT STEP ##
-########################
-
-
-## Bigram counts
-diction2, alpha2, count2 = decrypt_functions.gram2(mystring_3)
-
+################################################
+## Find n
+print("\nStep3\n'ent' is the most frequent trigram of 'e(something)t'.")
 ## Trigram counts
-diction3, alpha3, count3 = decrypt_functions.gram3(mystring_3)
+alpha3, count3 = d.gram3(mystring_2)
+print("Trigrams Frequency\t", ps)
+d.print_table(alpha3, count3, print_num)
+## Replace n
+mystring_3 = d.find_n(mystring_2, alpha3)
+## Calculate Completion %
+com3 = d.complete(mystring_3)
+print("Decryption Completion % --> \t",format(com3, ".2f"), "%")
 
-## 4-gram counts
-diction4, alpha4, count4 = decrypt_functions.gram4(mystring_3)
 
-## Step 4 --> Find a and replace it
+
+################################################
+## STEP 4 --> Find a and replace it
 ## e
 ## t h
 ## n
 ## a
-mystring_4 = decrypt_functions.find_a(mystring_3, alpha4)
-
-########################
-## NEXT STEP ##
-########################
-
-
-## Bigram counts
-diction2, alpha2, count2 = decrypt_functions.gram2(mystring_4)
-
-## Trigram counts
-diction3, alpha3, count3 = decrypt_functions.gram3(mystring_4)
-
+################################################
+## Find a
+print("\nStep4\n'that' is the most frequent 4-gram of 'th(something)t'.")
 ## 4-gram counts
-diction4, alpha4, count4 = decrypt_functions.gram4(mystring_4)
+alpha4, count4 = d.gram4(mystring_3)
+print("4-grams Frequency\t", ps)
+d.print_table(alpha4, count4, print_num)
+## Replace a
+mystring_4 = d.find_a(mystring_3, alpha4)
+## Calculate Completion %
+com4 = d.complete(mystring_4)
+print("Decryption Completion % --> \t",format(com4, ".2f"), "%")
 
-## Step 5 --> Find d and replace it
+
+
+################################################
+## STEP 5 --> Find d and replace it
 ## e
 ## t h
 ## n
 ## a
 ## d
-mystring_5 = decrypt_functions.find_d(mystring_4, alpha3)
-
-########################
-## NEXT STEP ##
-########################
-
-
-## Bigram counts
-diction2, alpha2, count2 = decrypt_functions.gram2(mystring_5)
-
+################################################
+## Find d
+print("\nStep5\n'and' is the most frequent trigram of 'an(something)'.")
 ## Trigram counts
-diction3, alpha3, count3 = decrypt_functions.gram3(mystring_5)
+alpha3, count3 = d.gram3(mystring_4)
+print("Trigrams Frequency\t", ps)
+d.print_table(alpha3, count3, print_num)
+## Replace d
+mystring_5 = d.find_d(mystring_4, alpha3)
+## Calculate Completion %
+com5 = d.complete(mystring_5)
+print("Decryption Completion % --> \t",format(com5, ".2f"), "%")
 
-## 4-gram counts
-diction4, alpha4, count4 = decrypt_functions.gram4(mystring_5)
 
-## Step 6 --> Find r and replace it
+
+################################################
+## STEP 6 --> Find r and replace it
 ## e
 ## t h
 ## n
 ## a
 ## d
 ## r
-mystring_6 = decrypt_functions.find_r(mystring_5, alpha2)
-
-########################
-## NEXT STEP ##
-########################
-
-
+################################################
+## Find r
+print("\nStep6\n're' is the most frequent bigram of '(something)e' excluding the bigrams that we have already decrypted.")
 ## Bigram counts
-diction2, alpha2, count2 = decrypt_functions.gram2(mystring_6)
+alpha2, count2 = d.gram2(mystring_5)
+print("Bigrams Frequency\t", ps)
+d.print_table(alpha2, count2, print_num)
+## Replace r
+mystring_6 = d.find_r(mystring_5, alpha2)
+## Calculate Completion %
+com6 = d.complete(mystring_6)
+print("Decryption Completion % --> \t",format(com6, ".2f"), "%")
 
-## Trigram counts
-diction3, alpha3, count3 = decrypt_functions.gram3(mystring_6)
 
-## 4-gram counts
-diction4, alpha4, count4 = decrypt_functions.gram4(mystring_6)
 
-## Step 7 --> Find o and replace it
+################################################
+## STEP 7 --> Find o and replace it
 ## e
 ## t h
 ## n
@@ -150,23 +159,22 @@ diction4, alpha4, count4 = decrypt_functions.gram4(mystring_6)
 ## d
 ## r
 ## o
-mystring_7 = decrypt_functions.find_o(mystring_6, alpha2)
-
-########################
-## NEXT STEP ##
-########################
-
-
+################################################
+## Find o
+print("\nStep7\n'or' is the most frequent bigram of '(something)r' excluding the bigrams that we have already decrypted.")
 ## Bigram counts
-diction2, alpha2, count2 = decrypt_functions.gram2(mystring_7)
+alpha2, count2 = d.gram2(mystring_6)
+print("Bigrams Frequency\t", ps)
+d.print_table(alpha2, count2, print_num)
+## Replace o
+mystring_7 = d.find_o(mystring_6, alpha2)
+## Calculate Completion %
+com7 = d.complete(mystring_7)
+print("Decryption Completion % --> \t",format(com7, ".2f"), "%")
 
-## Trigram counts
-diction3, alpha3, count3 = decrypt_functions.gram3(mystring_7)
 
-## 4-gram counts
-diction4, alpha4, count4 = decrypt_functions.gram4(mystring_7)
-
-## Step 7 --> Find i and replace it
+################################################
+## STEP 8 --> Find i and replace it
 ## e
 ## t h
 ## n
@@ -175,5 +183,23 @@ diction4, alpha4, count4 = decrypt_functions.gram4(mystring_7)
 ## r
 ## o
 ## i
-mystring_8 = decrypt_functions.find_i(mystring_7, alpha2)
+################################################
+## Find i
+print("\nStep8\n'or' is the most frequent bigram of '(something)n' excluding the bigrams that we have already decrypted.")
+## Bigram counts
+alpha2, count2 = d.gram2(mystring_7)
+print("Bigrams Frequency\t", ps)
+d.print_table(alpha2, count2, print_num)
+## replace i
+mystring_8 = d.find_i(mystring_7, alpha2)
+## Calculate Completion %
+com8 = d.complete(mystring_8)
+print("Decryption Completion % --> \t",format(com8, ".2f"), "%")
+
+
+
+## playing around
+alpha1, count1 = d.gram1(mystring_8)
+print("\n\n\nBigrams Frequency\t", ps)
+d.print_table(alpha1, count1, len(alpha1))
 ## THE END ##
