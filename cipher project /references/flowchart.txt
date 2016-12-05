@@ -11,10 +11,7 @@ step5 —> compare trigrams to find “and” 				SOLVE “D”
 step6 —> compare bigrams to find “re”		(lowercase)+”e”		SOLVE “R”
 step7 —> compare bigrams to find “or”		(lowercase)+”r”		SOLVE “O”
 step8 —> compare bigrams to find “in”		(lowercase)+”n”		SOLVE “I”
-
-
-
-
+******************************************************************************************
 step11 —> only character in letter counts but not in bigrams list 	SOLVE “S”
 
 

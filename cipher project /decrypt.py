@@ -173,6 +173,7 @@ com7 = d.complete(mystring_7)
 print("Decryption Completion % --> \t",format(com7, ".2f"), "%")
 
 
+
 ################################################
 ## STEP 8 --> Find i and replace it
 ## e
@@ -198,8 +199,32 @@ print("Decryption Completion % --> \t",format(com8, ".2f"), "%")
 
 
 
-## playing around
+################################################
+## STEP 9 --> Find s and replace it
+## e
+## t h
+## n
+## a
+## d
+## r
+## o
+## i
+## s
+################################################
+## Find s
+print("\nStep9\n's' is the most frequent letter count excluding the letters that we have already decrypted.")
+print("The difference between the most frequent non-decrypted letter and the second most non-decrypted letter is statistically significant.")
+## Letter counts
 alpha1, count1 = d.gram1(mystring_8)
-print("\n\n\nBigrams Frequency\t", ps)
+print("Letters Frequency\t", ps)
 d.print_table(alpha1, count1, len(alpha1))
+## replace s
+mystring_9 = d.find_s(mystring_8, alpha1)
+## Calculate Completion %
+com9 = d.complete(mystring_9)
+print("Decryption Completion % --> \t",format(com9, ".2f"), "%")
+
+
+
+
 ## THE END ##

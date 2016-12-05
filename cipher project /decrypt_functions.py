@@ -315,6 +315,27 @@ def find_i(mystring, alpha):
     print(mystring_)
     return mystring_i
 
+###################################################################################################################
+#######################                     FIND S
+###################################################################################################################
 
+## Define step9 --> Find s and replace it
+def find_s(mystring, alpha):
+    letters = ''
+    for ch in alpha:
+        if ch.isupper():
+            letters += ch
+    sss = letters[0]
+    print("\nHence if we take a look at the letter counts table, 's' is '",sss,"'")
+    print("We are going to replace all '",sss,"' with 's' as followed:\n")
+    mystring_s = mystring.replace(sss,"s") ## Replace s
+    mystring_ = ""
+    for ch in mystring_s:
+        if ch.isupper():
+            mystring_ += "_"
+        else:
+            mystring_ += ch
+    print(mystring_)
+    return mystring_s
 
 ## THE END ##
